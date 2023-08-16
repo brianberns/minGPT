@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>25451a1f-c5b0-40c6-869c-c5964d587400</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>projects\demo\demo.py</StartupFile>
+    <StartupFile>projects\chargpt\chargpt.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -45,6 +45,7 @@
     <Content Include=".gitignore" />
     <Content Include="demo.ipynb" />
     <Content Include="generate.ipynb" />
+    <Content Include="input.txt" />
     <Content Include="LICENSE" />
     <Content Include="mingpt.jpg" />
     <Content Include="projects\adder\readme.md" />
