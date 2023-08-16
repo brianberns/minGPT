@@ -4,3 +4,4 @@ __pycache__/
 .env
 .pylintrc
 /.vs
+/minGPT.pyproj.user
