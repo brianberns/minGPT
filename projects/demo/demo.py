@@ -98,7 +98,7 @@ trainer = Trainer(train_config, model, train_dataset)
 
 def batch_end_callback(trainer):
     if trainer.iter_num % 1 == 0:
-        print("iter %d: train loss %.25f, rand %.25f" % (trainer.iter_num, trainer.loss.item(), torch.rand(1).item()))
+        print("iter %d: train loss %.25f" % (trainer.iter_num, trainer.loss.item()))
 trainer.set_callback('on_batch_end', batch_end_callback)
 
 trainer.run()
