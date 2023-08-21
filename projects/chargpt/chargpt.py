@@ -21,7 +21,7 @@ def get_config():
 
     # system
     C.system = CN()
-    C.system.seed = 3407
+    C.system.seed = 0
     C.system.work_dir = './out/chargpt'
 
     # data
@@ -107,10 +107,10 @@ if __name__ == '__main__':
     # iteration callback
     def batch_end_callback(trainer):
 
-        if trainer.iter_num % 10 == 0:
+        if trainer.iter_num % 1 == 0:
             print(f"iter_dt {trainer.iter_dt * 1000:.2f}ms; iter {trainer.iter_num}: train loss {trainer.loss.item():.5f}")
 
-        if trainer.iter_num % 500 == 0:
+        if trainer.iter_num % 500 == 501:
             # evaluate both the train and test score
             model.eval()
             with torch.no_grad():

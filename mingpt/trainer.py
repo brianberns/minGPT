@@ -36,10 +36,7 @@ class Trainer:
         self.callbacks = defaultdict(list)
 
         # determine the device we'll train on
-        if config.device == 'auto':
-            self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
-        else:
-            self.device = config.device
+        self.device = 'cpu'
         self.model = self.model.to(self.device)
         print("running on device", self.device)
 
@@ -67,7 +64,7 @@ class Trainer:
         # setup the dataloader
         train_loader = DataLoader(
             self.train_dataset,
-            sampler=torch.utils.data.RandomSampler(self.train_dataset, replacement=True, num_samples=int(1e10)),
+            # sampler=torch.utils.data.RandomSampler(self.train_dataset, replacement=True, num_samples=int(1e10)),
             shuffle=False,
             pin_memory=True,
             batch_size=config.batch_size,
@@ -93,7 +90,7 @@ class Trainer:
             logits, self.loss = model(x, y)
 
             # backprop and update the parameters
-            model.zero_grad(set_to_none=True)
+            model.zero_grad("""set_to_none=True""")
             self.loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), config.grad_norm_clip)
             self.optimizer.step()

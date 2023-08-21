@@ -22,7 +22,7 @@ def get_config():
 
     # system
     C.system = CN()
-    C.system.seed = 3407
+    C.system.seed = 0
     C.system.work_dir = './out/adder'
 
     # data
@@ -181,10 +181,10 @@ if __name__ == '__main__':
     def batch_end_callback(trainer):
         global top_score
 
-        if trainer.iter_num % 10 == 0:
+        if trainer.iter_num % 1 == 0:
             print(f"iter_dt {trainer.iter_dt * 1000:.2f}ms; iter {trainer.iter_num}: train loss {trainer.loss.item():.5f}")
 
-        if trainer.iter_num % 500 == 0:
+        if trainer.iter_num % 500 == 501:
             # evaluate both the train and test score
             train_max_batches = {1: None, 2: None, 3: 5}[config.data.ndigit] # if ndigit=2 we can afford the whole train set, ow no
             model.eval()
